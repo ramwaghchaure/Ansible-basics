@@ -1,0 +1,13 @@
+---
+- hosts: all
+  tasks:
+     - name: set max connections
+       lineinfile:
+         path= /etc/postgresql/12/main/postgresql.conf
+         line: 'max_connection = 500'
+
+      - name: set listen adress
+        lineinfile:
+          path: /etc/postgresql/12/main/postgresql.conf
+          line: 'listen_addresses = "*"' 
+
