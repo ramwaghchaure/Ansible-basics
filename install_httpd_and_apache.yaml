@@ -1,0 +1,26 @@
+---
+- name: setup apache
+  hosts: webserver
+  tasks:
+    - name: install httpd
+      yum:
+        name: httpd
+        state: installed
+
+    - name: start httpd service
+      service:
+        name: httpd
+        state: started
+
+- name: setup tomcat
+  hosts: appserver
+  tasks:
+   - name: install tomcat
+     yum:
+       name: tomcat
+       state: installed
+
+   - name: start tomcat service
+     yum:
+       name: tomcat
+       state: started
