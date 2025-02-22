@@ -1,0 +1,16 @@
+---
+- name: Deply application
+  hosts: application_server
+  tasks:
+    - name: Copy application code
+      copy:
+         src: app_code/
+         dest: /opt/application/
+      notify: restart application service
+
+
+  handlers:
+    - name: restart application service
+      service:
+          name: application_service
+          state: restarted
