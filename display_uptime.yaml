@@ -1,0 +1,23 @@
+---
+- name: Run shell command on remote hosts
+  hosts: all
+  tasks:
+    - name: Run uptime command
+      shell: uptime
+      register: uptime_output
+
+    - name: Display uptime
+      debug:
+        var: uptime_output.stdout
+
+
+---- name: Run shell command on remote hosts
+hosts: all
+tasks:
+  - name: run uptime command
+    shell: uptime
+    register : uptime_output
+
+  - name: display uptime
+    debug:
+      var: uptime_output.stdout

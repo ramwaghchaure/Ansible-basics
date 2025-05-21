@@ -1,0 +1,12 @@
+---
+- name: copy nginx.conf file to servers
+  hosts: webservers
+  become: true
+  tasks:
+     - name: copy nginx configuration file
+       copy:
+         src:  /path/to/local/nginx.conf
+         dest: /etc/nginx/nginx.conf
+         owner: root
+         group: root
+         mode: '0644'

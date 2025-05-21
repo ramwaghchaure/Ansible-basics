@@ -1,0 +1,10 @@
+---- name:  create a new user
+     hosts: all
+     become: true
+     tasks:
+       - name: create and deploy user
+         user:
+            name: testuser1
+            state: present
+            home: /home/testuser1
+            shell: /bin/bash

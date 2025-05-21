@@ -1,0 +1,10 @@
+---
+  - name: backup important file or directory
+    hosts: all
+    become: true
+    tasks:
+      - name: Backup /etc/nginx/nginx.conf
+        copy:
+          src: /etc/nginx/nginx.conf
+          dest: /backup/nginx.conf.bak
+          backup: yes
